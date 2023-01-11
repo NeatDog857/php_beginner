@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    </head>
+    <script>
+        $(document).ready(function(){
+            $('#send').click(function(){
+                let name = document.getElementById('name').value; //$("#name").val()
+                let age = document.getElementById('age').value;
+                $.post("api.php",{'name':name,'age':age},function(data){
+                    let rtn_data = JSON.parse(data);
+                    if(rtn_data.status){
+                        alert(rtn_data.msg);
+                    }else{
+                        alert(rtn_data.msg);
+                    }
+                    console.log(data);
+                })
+            })
+        })
+    </script>
+    <body>
+        <input type='text' id="name"/>
+        <input type='text' id="age" />
+        <input type='button' id="send" value="送出">
+    </body>
+</html>

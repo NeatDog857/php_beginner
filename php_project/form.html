@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>物流表單</title>
+        <link rel="stylesheet" type="text/css" href="form.css"/>
+    </head>
+    <body>
+        <div class="backboard">
+            <div id="title">物流表單</div>
+            <div id="ps">*號為必填</div>
+            <form action="form.php" method="post">
+                <input type="text" placeholder="*姓名" name="name"/>
+                <br/>
+                <br/>
+                <input type="number" placeholder="*年齡" name="age"/>
+                <br/>
+                <br/>
+                <input type="text" placeholder="*手機" name="cell"/>
+                <br/>
+                <br/>
+                <input type="text" placeholder="*地址" name="address"/>
+                <br/>
+                <br/>
+                <input type="email" placeholder="電子郵件" name="email"/>
+                <br/>
+                <br/>
+                <label for="date">*寄送日期 :</label>
+                <input type="date" id="date" name="date"/>
+                <br/>
+                <br/>
+                <input type="checkbox" id="checkbox" checked name="annoying"/>
+                <label for="checkbox">是否訂閱我們的電子報煩死你</label>
+                <br/>
+                <br/>
+                <input type="submit" value="送出"/>
+            </form>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+</head>
+<script>
+    $(document).ready(function(){
+        $.post("db_test.php",{},function(data){
+            console.log(data);
+            let rtn_data = JSON.parse(data);
+            for (let i = 0; i < rtn_data.length; i++) {
+                const element = rtn_data[i];
+                let option = document.createElement('option');
+                option.value = element.id;
+                option.innerHTML = element.name;
+                $('#select').append(option);
+            }
+        })
+        $("#send").click(function(){
+            let id = $('#select').val();
+            $.post("vote.php",{'id':id},function(data){
+                alert('投票成功');
+            })
+        })
+   })
+</script>
+<body>
+    <select id="select">
+    </select>
+    <input id="send" type="button" value="投票">
+</body>
+
+
+
+</html>
